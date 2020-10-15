@@ -1,0 +1,17 @@
+version: '3'
+services:
+  rocketchat:
+    image: 'rocketchat/rocket.chat:${ROCKETCHAT_VERSION}'
+    environment:
+      - 'PORT=${PORT}'
+      - 'ROOT_URL=${ROOT_URL}'
+      - 'MONGO_URL=${MONGO_URL}'
+      - 'MONGO_OPLOG_URL=${MONGO_OPLOG_URL}'
+      - 'INSTANCE_IP=${INSTANCE_IP_ALPHA}'
+    ports:
+      - '${PORT}:${PORT}'
+    #
+    # Additional host if required
+    #
+    # extra_hosts:
+    #   - 'chat-bravo:${INSTANCE_IP_BRAVO}'
