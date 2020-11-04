@@ -7,11 +7,12 @@ services:
       - 'ROOT_URL=${ROOT_URL}'
       - 'MONGO_URL=${MONGO_URL}'
       - 'MONGO_OPLOG_URL=${MONGO_OPLOG_URL}'
-      - 'INSTANCE_IP=${INSTANCE_IP_ALPHA}'
+      - 'INSTANCE_IP=${INSTANCE_IP}'
     ports:
       - '${PORT}:${PORT}'
-    #
+
     # Additional host if required
-    #
-    # extra_hosts:
-    #   - 'chat-bravo:${INSTANCE_IP_BRAVO}'
+
+    extra_hosts:
+      - 'chat-alpha:${INSTANCE_IP_ALPHA}'
+      - 'chat-bravo:${INSTANCE_IP_BRAVO}'
