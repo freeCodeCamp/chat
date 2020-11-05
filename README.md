@@ -8,7 +8,10 @@ Usage:
    ROOT_URL=http://localhost:3000
    MONGO_URL=mongodb://urlforthedatabase:27017/rocketchat
    MONGO_OPLOG_URL=mongodb://urlforthedatabase:27017/local
-   INSTANCE_IP_ALPHA=<ip of the local instance>
+
+   INSTANCE_IP=<ip of the local instance>
+
+   INSTANCE_IP_ALPHA=<ip of the first instance>
    INSTANCE_IP_BRAVO=<ip of the other instance>
    ```
 
