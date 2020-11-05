@@ -2,6 +2,7 @@ version: '3'
 services:
   rocketchat:
     image: 'rocketchat/rocket.chat:${ROCKETCHAT_VERSION}'
+    restart: unless-stopped
     environment:
       - 'PORT=${PORT}'
       - 'ROOT_URL=${ROOT_URL}'
@@ -10,9 +11,7 @@ services:
       - 'INSTANCE_IP=${INSTANCE_IP}'
     ports:
       - '${PORT}:${PORT}'
-
     # Additional host if required
-
     extra_hosts:
       - 'chat-alpha:${INSTANCE_IP_ALPHA}'
       - 'chat-bravo:${INSTANCE_IP_BRAVO}'
