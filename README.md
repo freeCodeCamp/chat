@@ -23,3 +23,10 @@ Usage:
    docker-compose config
    docker-compose up -d
    ```
+
+Developing locally:
+
+1. `cp sample.env .env`
+2. `docker-compose up -d`
+
+This manages everything inside Docker (via `docker-compose.dev.yml`) including setting up a Mongo container and replica set.
