@@ -78,6 +78,7 @@
   --rc-color-alert-message-secondary: #7ca52b; /*2.88*/
   --success-color: #2de0a5; /*1.7*/
   --rc-color-alert-message-secondary-background: #fafff1; /*1.01*/
+  --rc-color-alert: var(--color-yellow);
 }
 
 body {
@@ -470,9 +471,9 @@ body.dark-mode {
   /* alert */
   --alerts-background: #1d73f5;
   --alerts-color: var(--color-white);
-
   --message-box-editing-color: var(--rc-color-alert-message-warning-background);
   --rc-color-alert: var(--color-dark-red);
+  --rc-status-away: var(--color-yellow);
 }
 
 /******************************************
