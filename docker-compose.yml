@@ -15,3 +15,5 @@ services:
     extra_hosts:
       - 'chat-alpha:${INSTANCE_IP_ALPHA}'
       - 'chat-bravo:${INSTANCE_IP_BRAVO}'
+      - 'chat-alpha:${INSTANCE_IP_CHARLIE}'
+      - 'chat-alpha:${INSTANCE_IP_DELTA}'
