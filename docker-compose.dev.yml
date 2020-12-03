@@ -13,7 +13,7 @@ services:
         done; (exit $$s)"
     environment:
       - 'PORT=${PORT}'
-      - 'ROOT_URL=http://localhost:${PORT}'
+      - 'ROOT_URL=${ROOT_URL}'
       - 'MONGO_URL=mongodb://mongo:27017/rocketchat'
       - 'MONGO_OPLOG_URL=mongodb://mongo:27017/local'
     ports:
@@ -30,8 +30,7 @@ services:
     command: mongod --smallfiles --oplogSize 128 --replSet rs0 --storageEngine=mmapv1
     labels:
       - "traefik.enable=false"
-      
-      
+
   mongo-init-replica:
     image: mongo:4.0
     command: >
@@ -47,8 +46,8 @@ services:
         done; (exit $$s)"
     depends_on:
       - mongo
-      
-# This was based on the config in 
+
+# This was based on the config in
 # https://github.com/RocketChat/Rocket.Chat/blob/develop/docker-compose.yml
 # licensed under:
 # Copyright (c) 2015-2020 Rocket.Chat Technologies Corp.
