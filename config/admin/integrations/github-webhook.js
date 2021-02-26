@@ -159,8 +159,10 @@ commit_comment(request) {
   pull_request(request) {
     const user = request.content.sender;
 
-   if (request.content.action == "opened" || request.content.action == "reopened" || request.content.action == "edited" || request.content.action == "synchronize") {
+   if (request.content.action == "opened" || request.content.action == "reopened" || request.content.action == "edited") {
         var body = request.content.pull_request.body;
+    } else if (request.content.action == "synchronize") {
+        var body = "A new commit was added.";
     } else if (request.content.action == "labeled") {
         var body = "Current labels: " + getLabelsField(request.content.pull_request.labels).value;
     } else if (request.content.action == "assigned" || request.content.action == "unassigned") {
