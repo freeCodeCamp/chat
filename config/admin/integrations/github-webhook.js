@@ -62,13 +62,7 @@ const githubEvents = {
 
     return {
       content: {
-        attachments: [
-            {
-                thumb_url: user.avatar_url,
-                text: text,
-                fields: []
-            }
-        ]
+        text: text
       }
     };
   },
@@ -91,13 +85,7 @@ const githubEvents = {
 
     return {
       content: {
-        attachments: [
-            {
-                thumb_url: user.avatar_url,
-                text: text,
-                fields: []
-            }
-        ]
+        text: text
       }
     };
   },
@@ -120,13 +108,7 @@ commit_comment(request) {
 
     return {
       content: {
-        attachments: [
-            {
-                thumb_url: user.avatar_url,
-                text: text,
-                fields: []
-            }
-        ]
+        text: text
       }
     };
   },
@@ -168,13 +150,7 @@ commit_comment(request) {
 
     return {
       content: {
-        attachments: [
-            {
-                thumb_url: user.avatar_url,
-                text: text,
-                fields: []
-            }
-        ]
+        text: text
       }
     };
   },  // End GitHub Push
@@ -215,13 +191,7 @@ commit_comment(request) {
 
     return {
       content: {
-        attachments: [
-            {
-                thumb_url: user.avatar_url,
-                text: text,
-                fields: []
-            }
-        ]
+        text: text
       }
     };
   },
