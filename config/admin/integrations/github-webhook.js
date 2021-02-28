@@ -31,7 +31,7 @@ const githubEvents = {
     const user = request.content.sender;
 
     if (request.content.action == "opened" || request.content.action == "reopened" || request.content.action == "edited") {
-        var body = request.content.issue.body;
+        var body = request.content.action + " by: " + user.login;
     } else if (request.content.action == "labeled") {
         var body = "Current labels: " + getLabelsField(request.content.issue.labels).value;
     } else if (request.content.action == "assigned" || request.content.action == "unassigned") {
@@ -80,8 +80,8 @@ const githubEvents = {
     const text = '_' + request.content.repository.full_name + '_\n' +
                 '**[' + action + ' on issue ​#' + request.content.issue.number +
                 ' - ' + request.content.issue.title + '](' +
-                request.content.comment.html_url + ')**\n\n' +
-                request.content.comment.body;
+                request.content.comment.html_url + ')**\n\n' + 'By: ' +
+                user.login;
 
     return {
       content: {
@@ -104,7 +104,7 @@ commit_comment(request) {
                 '**[' + action + ' on commit id ' + request.content.comment.commit_id +
                 ' - ' +  + '](' +
                 request.content.comment.html_url + ')**\n\n' +
-                request.content.comment.body;
+                'By: ' + user.login
 
     return {
       content: {
@@ -160,9 +160,9 @@ commit_comment(request) {
     const user = request.content.sender;
 
    if (request.content.action == "opened" || request.content.action == "reopened" || request.content.action == "edited") {
-        var body = request.content.pull_request.body;
+        var body = request.content.action + ' by: ' + user.login;
     } else if (request.content.action == "synchronize") {
-        var body = "A new commit was added.";
+        var body = "A new commit was added by: " + user.login;
     } else if (request.content.action == "labeled") {
         var body = "Current labels: " + getLabelsField(request.content.pull_request.labels).value;
     } else if (request.content.action == "assigned" || request.content.action == "unassigned") {
