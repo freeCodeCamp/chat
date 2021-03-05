@@ -1,11 +1,13 @@
 /**
- * uptimerobot-incoming.js
- * Add Uptime Robot notifications via a new WebHook in Rocket.Chat
- * @license MIT
- * @version 0.2
- * @author  CrazyMax, https://github.com/crazy-max
- * @updated 2018-10-14
- * @link    https://github.com/crazy-max/rocketchat-uptimerobot
+
+  This script is currently being used from https://github.com/freeCodeCamp/chat-config/tree/main/config/admin/integrations/
+
+   Attributions:
+     @license MIT
+     @version 0.2
+     @author  CrazyMax, https://github.com/crazy-max
+     @updated 2018-10-14
+     @link    https://github.com/crazy-max/rocketchat-uptimerobot
  */
 
 /* globals console, _, s */
@@ -54,20 +56,21 @@ class Script {
       statusText = `UP`;
     }
 
-    let attachmentText = `@here \n\n [${data.monitorFriendlyName}](https://uptimerobot.com/dashboard.php#${data.monitorID}) is ${statusText} (${data.monitorURL}). \n`;
+    let attachmentText = `[${data.monitorFriendlyName}](https://uptimerobot.com/dashboard.php#${data.monitorID}) is ${statusText}`;
+
     if (isUp) {
-      attachmentText += `It was down for ${convertAlertDuration(
+      attachmentText += ` It was down for ${convertAlertDuration(
         data.alertDuration
       )}`;
     } else {
-      attachmentText += `Reason: ${data.alertDetails}`;
+      attachmentText += ` Reason: ${data.alertDetails}`;
     }
 
     return {
       content: {
         username: USERNAME,
         icon_url: AVATAR_URL,
-        text: `Monitor [${data.monitorFriendlyName}](https://uptimerobot.com/dashboard.php#${data.monitorID}) status has changed.`,
+        text: `@here The uptime status for [${data.monitorFriendlyName}](https://uptimerobot.com/dashboard.php#${data.monitorID}) has changed.`,
         attachments: [
           {
             text: attachmentText,
