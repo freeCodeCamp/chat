@@ -30,6 +30,9 @@ const githubEvents = {
   issues(request) {
     const user = request.content.sender;
 
+    // Ignore Renovate
+    if (user.login === 'renovate[bot]') return;
+
     if (request.content.action == "opened" || request.content.action == "reopened" || request.content.action == "edited") {
         var body = request.content.action + " by: " + user.login;
     } else if (request.content.action == "labeled") {
@@ -71,6 +74,9 @@ const githubEvents = {
   issue_comment(request) {
     const user = request.content.comment.user;
 
+    // ignore renovate
+    if (user.login === 'renovate[bot]') return;
+
     if (request.content.action == "edited") {
         var action = "Edited comment ";
     } else {
@@ -93,6 +99,8 @@ const githubEvents = {
  /* COMMENT ON COMMIT */
 commit_comment(request) {
     const user = request.content.comment.user;
+
+    if (user.login === 'renovate[bot]') return;
 
     if (request.content.action == "edited") {
         var action = "Edited comment ";
@@ -128,6 +136,8 @@ commit_comment(request) {
     }
     const user = request.content.sender;
 
+    if (user.login === 'renovate[bot]') return;
+
     var text = '**Pushed to ' + "["+request.content.repository.full_name+"]("+request.content.repository.url+"):"
                 + request.content.ref.split('/').pop() + "**\n\n";
 
@@ -158,6 +168,8 @@ commit_comment(request) {
   /* NEW PULL REQUEST */
   pull_request(request) {
     const user = request.content.sender;
+
+    if (user.login === 'renovate[bot]') return;
 
    if (request.content.action == "opened" || request.content.action == "reopened" || request.content.action == "edited") {
         var body = request.content.action + ' by: ' + user.login;
