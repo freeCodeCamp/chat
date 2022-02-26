@@ -23,7 +23,7 @@ services:
       - mongo-init-replica
 
   mongo:
-    image: mongo:4.0
+    image: mongo:5.0
     restart: unless-stopped
     volumes:
      - /data/db
@@ -32,7 +32,7 @@ services:
       - "traefik.enable=false"
 
   mongo-init-replica:
-    image: mongo:4.0
+    image: mongo:5.0
     command: >
       bash -c
         "for i in `seq 1 30`; do
