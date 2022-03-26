@@ -1,7 +1,7 @@
 version: '3'
 services:
   rocketchat:
-    image: 'rocketchat/rocket.chat:${ROCKETCHAT_VERSION}'
+    image: 'registry.rocket.chat/rocketchat/rocket.chat:${ROCKETCHAT_VERSION}'
     restart: unless-stopped
     command: >
       bash -c
