@@ -11,9 +11,3 @@ services:
       - 'INSTANCE_IP=${INSTANCE_IP}'
     ports:
       - '${PORT}:${PORT}'
-    # Additional host if required
-    extra_hosts:
-      - 'chat-alpha:${INSTANCE_IP_ALPHA}'
-      - 'chat-bravo:${INSTANCE_IP_BRAVO}'
-      - 'chat-charlie:${INSTANCE_IP_CHARLIE}'
-      - 'chat-delta:${INSTANCE_IP_DELTA}'
