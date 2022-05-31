@@ -3,7 +3,6 @@ Usage:
 1. Create a .env
 
    ```txt
-   ROCKETCHAT_VERSION=latest
    PORT=3000
    ROOT_URL=http://localhost:3000
    MONGO_URL=mongodb://urlforthedatabase:27017/rocketchat
@@ -20,3 +19,7 @@ Usage:
    docker-compose config
    docker-compose up -d
    ```
+
+Updating:
+
+We receive updates to the Rocket.Chat Docker images via `renovate` bot. Once an update PR is merged, run the ansible-playbook in the housekeeping repo to deploy fresh containers.
