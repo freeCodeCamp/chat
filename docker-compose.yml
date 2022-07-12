@@ -1,7 +1,7 @@
 version: '3'
 services:
   rocketchat:
-    image: rocketchat/rocket.chat:4.8.1
+    image: rocket.chat:4.8.1
     restart: unless-stopped
     environment:
       PORT: ${PORT}
