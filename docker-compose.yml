@@ -34,6 +34,6 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - $PWD/Caddyfile:/etc/caddy/Caddyfile
+      - ./Caddyfile:/etc/caddy/Caddyfile
     depends_on:
       - rocketchat
