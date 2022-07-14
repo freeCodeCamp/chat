@@ -10,6 +10,7 @@ networks:
 services:
   rocketchat:
     image: rocket.chat:4.8.1
+    container_name: rocketchat
     restart: unless-stopped
     environment:
       PORT: 21212
