@@ -3,8 +3,6 @@ Usage:
 1. Create a .env
 
    ```txt
-   PORT=3000
-   ROOT_URL=http://localhost:3000
    MONGO_URL=mongodb://urlforthedatabase:27017/rocketchat
    MONGO_OPLOG_URL=mongodb://urlforthedatabase:27017/local
 

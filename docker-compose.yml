@@ -1,13 +1,38 @@
 version: '3'
+
+networks:
+  web:
+    external: true
+  internal:
+    external: false
+    driver: bridge
+
 services:
   rocketchat:
     image: rocket.chat:4.8.1
     restart: unless-stopped
     environment:
-      PORT: ${PORT}
-      ROOT_URL: ${ROOT_URL}
+      PORT: 21212
+      ROOT_URL: https://chat.freecodecamp.org
       MONGO_URL: ${MONGO_URL}
       MONGO_OPLOG_URL: ${MONGO_OPLOG_URL}
       INSTANCE_IP: ${INSTANCE_IP}
+    networks:
+      - internal
     ports:
-      - '${PORT}:${PORT}'
+      - 21212:21212
+
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    restart: unless-stopped
+    networks:
+      - web
+      - internal
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - $PWD/Caddyfile:/etc/caddy/Caddyfile
+    depends_on:
+      - rocketchat

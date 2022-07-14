@@ -1,0 +1,4 @@
+chat.freecodecamp.org {
+  tls internal
+  reverse_proxy rocketchat:21212
+}
