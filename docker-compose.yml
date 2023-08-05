@@ -9,7 +9,7 @@ networks:
 
 services:
   rocketchat:
-    image: rocketchat/rocket.chat:6.2.11
+    image: rocketchat/rocket.chat:6.3.0
     container_name: rocketchat
     restart: unless-stopped
     environment:
