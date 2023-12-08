@@ -24,7 +24,7 @@ services:
       - 21212:21212
 
   caddy:
-    image: caddy:2.7.5
+    image: caddy:2.7.6
     container_name: caddy
     restart: unless-stopped
     networks:
